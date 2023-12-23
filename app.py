@@ -1,12 +1,10 @@
 from flask import Flask
 
-# アプリケーション立ち上げのインスタンス(__name__は、テンプレート読み込みの時などに内部で使用)
-app = Flask(__name__)
+app = Flask(__name__)  # アプリケーション立ち上げのインスタンス(__name__は、テンプレート読み込みの時などに内部で使用)
 
 
-# デコレータ関数(後続の関数に処理を追加)
-@app.route("/")
-def index():
+@app.route("/")  # デコレータ関数(後続の関数に処理を追加)
+def index():  # index関数
     """ルートURLへのアクセス"""
     return "<h1>usuki</h1>"
 
