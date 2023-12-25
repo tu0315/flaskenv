@@ -1,12 +1,21 @@
-Python+FlaskでのWebアプリケーション開発講座！！～0からFlaskをマスターしてSNSを作成する～ | Udemy https://www.udemy.com/course/flaskpythonweb/
+Python+FlaskでのWebアプリケーション開発講座～0からFlaskをマスターしてSNSを作成する～ | Udemy https://www.udemy.com/course/flaskpythonweb/
 
 . flaskenv/bin/activate
+flask --app app --debug run
+リクエストを飛ばす→Flaskサーバーにアクセス→URLによって処理が割り振られる
+VSCodeでのデバッグ
+行数に赤丸つけて「実行->デバック実行」でFlask選択すると変数の中身など確認できる
 
 
 2023/12/21開始
 環境構築
+セクション1,2
 1h
 
 2023/12/22
-ルーティング
+セクション6
 2h
+
+2023/12/25
+セクション6,7
+
