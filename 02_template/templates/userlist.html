@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <h1>{{ users }}</h1> -->
+    {%for user in users %}
+    {{loop.length}}
+    {% endfor %}
+    <hr>
+    <ul>
+    {%for user in users %}
+        {% if user=="taro" %}
+            <p>たろーですね</p>
+        {% endif %}
+        <li>{{ user }}</li>
+    {% endfor %}
+    </ul>
+    {% if is_login %}
+        <p>ログインしてるよ</p>
+    {% else %}
+        <p>ログインしてないよ</p>
+    {% endif %}
+
+    {% if "takuro" in users %}
+        <p>たくろーいるよ</p>
+    {% else %}
+        <p>たくろーいないよ</p>
+    {% endif %}
+</body>
+</html>
