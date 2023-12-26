@@ -2,6 +2,7 @@
 {% block title %}Userlist{% endblock %}
 {% block content %}
     <!-- <h1>{{ users }}</h1> -->
+    <a href="{{url_for('index')}}">Indexへ</a>
     <h1>フィルタリング</h1>
     <p>最初の人：{{users | first}}</p>
     <p>最後の人：{{users | last}}</p>
