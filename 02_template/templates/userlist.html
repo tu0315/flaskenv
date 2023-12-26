@@ -2,6 +2,21 @@
 {% block title %}Userlist{% endblock %}
 {% block content %}
     <!-- <h1>{{ users }}</h1> -->
+    <h1>フィルタリング</h1>
+    <p>最初の人：{{users | first}}</p>
+    <p>最後の人：{{users | last}}</p>
+    <p>ソート：{{users | sort |first}}</p>
+    <p>ランダム：{{users | random}}</p>
+    <hr>
+    <h2>逆順</h2>
+    <ul>
+    {%for user in users|reverse %}
+        <li>{{ user }}</li>
+    {% endfor %}
+    <p>リストの長さ：{{users | length}}</p>
+    <p>Trim:{{'  vkjhb  ' | trim}}</p>
+    </ul>
+    <hr>
     {%for user in users %}
     {{loop.length}}
     {% endfor %}
