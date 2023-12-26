@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Userlist{% endblock %}
+{% block content %}
     <!-- <h1>{{ users }}</h1> -->
     {%for user in users %}
     {{loop.length}}
@@ -29,5 +25,4 @@
     {% else %}
         <p>たくろーいないよ</p>
     {% endif %}
-</body>
-</html>
+{% endblock %}

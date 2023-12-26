@@ -5,7 +5,8 @@ flask --app app --debug run
 リクエストを飛ばす→Flaskサーバーにアクセス→URLによって処理が割り振られる
 VSCodeでのデバッグ
 行数に赤丸つけて「実行->デバック実行」でFlask選択すると変数の中身など確認できる
-
+{% block title %}{{ super() }}{% endblock %}
+流用可能
 
 2023/12/21開始
 環境構築

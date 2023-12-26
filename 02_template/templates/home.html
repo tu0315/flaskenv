@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
-    <h1>{{ user_info.name }}({{ user_info.age }})です。</h1>
-    <p>{{ user_info.greet() }}</p>
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<h1>{{ user_info.name }}({{ user_info.age }})です。</h1>
+<p>{{ user_info.greet() }}</p> 
+{% endblock %}
