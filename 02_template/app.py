@@ -1,6 +1,11 @@
 from flask import Flask, render_template
+from custom_filters import reverse, birth_year
+
 
 app = Flask(__name__)
+
+app.add_template_filter(reverse, "reverse_name")
+app.add_template_filter(birth_year, "birth_year")
 
 
 @app.route("/")

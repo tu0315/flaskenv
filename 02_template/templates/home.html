@@ -4,4 +4,5 @@
 {#<h1>{{ user_info.name }}({{ user_info.age }})です。</h1>#}
 <h1>{{ "%s(%s)" | format(user_info.name, user_info.age)}}です。</h1>
 <p>{{ user_info.greet() }}</p> 
+<p>{{user_info.age | birth_year}}</p>
 {% endblock %}
