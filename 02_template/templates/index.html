@@ -1,5 +1,17 @@
 {% extends "base.html" %}
 {% block title %}Home{% endblock %}
 {% block content %}
+{% filter upper %}
 <h1>Hello from Flask</h1>
+{% endfilter %}
+
+{% filter lower %}
+<h1>Hello from Flask</h1>
+{% endfilter %}
+
+<h1>{{"Hello from Flask" | capitalize }}</h1>
+<h1>{{"Hello from Flask" | title }}</h1>
+<h1>{{"Hello from Flask https://github.com/" | urlize }}</h1>
+
+<p>{{ user | default('ユーザーが存在しません') }}</p>
 {% endblock %}
