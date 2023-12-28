@@ -85,7 +85,6 @@ def upload():
         # ファイル名を安全な形式に変換
         save_filename = secure_filename(file.filename)
         # ファイルを保存する
-        # file.save(os.path.join("./static/image", save_filename))
         # os.path.dirname(__file__)でapp.pyを指し示す
         file.save(
             os.path.join(os.path.dirname(__file__), "static/image", save_filename)
