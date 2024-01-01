@@ -25,8 +25,3 @@ class Member(db.Model):
         self.name = name
         self.age = age
         self.comment = comment
-
-
-# 実行する
-# with app.app_context():
-#     db.create_all()
