@@ -50,7 +50,10 @@ super()で流用可能
 3h
 チマチマ止めて書くより一気にガーっと書くほうが集中できていい感じ
 
+テーブル作成用.pyファイルを実行
 export FLASK_APP=models.py 
 flask db init
 flask db migrate -m "first commit"
-flask db upgrade 
+flask db upgrade
+
+問題が出てきたが自分でググって解決できたのは成長!
