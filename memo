@@ -47,5 +47,10 @@ super()で流用可能
 
 2024/01/01
 セクション8
-2.5h
+3h
 チマチマ止めて書くより一気にガーっと書くほうが集中できていい感じ
+
+export FLASK_APP=models.py 
+flask db init
+flask db migrate -m "first commit"
+flask db upgrade 

@@ -13,18 +13,19 @@ def member_list():
     return render_template("member_list.html", members=members, form=form)
 
 
-@app.route("/create_member")
+@app.route("/create_member", methods=["GET", "POST"])
 def create_member():
     # メンバー新規作成
     form = CreateMemberForm(request.form)
     if request.method == "POST" and form.validate():
+        print("POST")
         name = form.name.data
         age = form.age.data
         comment = form.comment.data
         # トランザクション
-        with db.session.begin(subtransactions=True):
-            new_member = Member(name, age, comment)
-            db.session.add(new_member)
+        # with db.session.begin(subtransactions=False):
+        new_member = Member(name, age, comment)
+        db.session.add(new_member)
         db.session.commit()
         return redirect(url_for("member_list"))
     return render_template("create_member.html", form=form)
@@ -41,11 +42,11 @@ def update_member(member_id):
         name = form.name.data
         age = form.age.data
         comment = form.comment.data
-        with db.session.begin(subtransactions=True):
-            member = Member.query.get(id)
-            member.name = name
-            member.age = age
-            member.comment = comment
+        # with db.session.begin(subtransactions=True):
+        member = Member.query.get(id)
+        member.name = name
+        member.age = age
+        member.comment = comment
         db.session.commit()
         return redirect(url_for("member_list"))
     return render_template("update_member.html", form=form, member=member)
@@ -56,10 +57,10 @@ def delete_member():
     # メンバー削除
     form = DeleteMemberForm(request.form)
     if request.method == "POST" and form.validate():
-        with db.session.begin(subtransactions=True):
-            id = form.id.data
-            member = Member.query.get(id)
-            db.session.delete(member)
+        # with db.session.begin(subtransactions=True):
+        id = form.id.data
+        member = Member.query.get(id)
+        db.session.delete(member)
         db.session.commit()
         return redirect(url_for("member_list"))
     return redirect(url_for("member_list"))
