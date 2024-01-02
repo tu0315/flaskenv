@@ -15,14 +15,13 @@ class User(UserMixin, db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(64), unique=True, index=True)
-    username = db.Column(db.String(64), Index=True)
+    username = db.Column(db.String(64), index=True)
     password = db.Column(db.String(128))
 
     # コンストラクタ
     def __init__(self, email, username, password):
         self.email = email
         self.username = username
-        # passwordは暗号化する
         self.password = generate_password_hash(password)
 
     # パスワード確認用関数、正しいかどうか返す
@@ -36,5 +35,4 @@ class User(UserMixin, db.Model):
 
     @classmethod
     def select_by_email(cls, email):
-        # emailでユーザーを絞り込む
         return cls.query.filter_by(email=email).first()

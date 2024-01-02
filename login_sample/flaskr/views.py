@@ -25,24 +25,20 @@ def welcome():
 @bp.route("/logout")
 @login_required
 def logout():
-    # ログアウトする
-    logout_user()
+    logout_user()  # ログアウトできる
     return redirect(url_for("app.home"))
 
 
 # ログインページ
 @bp.route("/login", methods=["GET", "POST"])
-@login_required
 def login():
     form = LoginForm(request.form)
     if request.method == "POST" and form.validate():
         user = User.select_by_email(form.email.data)
-        # emailから取得したUserのパスワードとクライアントが入力したパスワードが一致しているか
+        # emailから取得したUserのパスワードとクライアントが入力したパスワードが一致するか
         if user and user.validate_password(form.password.data):
-            # ログインする
-            login_user(user)
-            # 次のURLを取得する
-            next = request.args.get("next")
+            login_user(user, remember=True)
+            next = request.args.get("next")  # 次のURL
             if not next:
                 next = url_for("app.welcome")
             return redirect(next)
@@ -51,7 +47,6 @@ def login():
 
 # 登録ページ
 @bp.route("/register", methods=["GET", "POST"])
-@login_required
 def register():
     form = RegisterForm(request.form)
     if request.method == "POST" and form.validate():

@@ -1,3 +1,4 @@
+# __ init__.py
 import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
@@ -18,12 +19,11 @@ migrate = Migrate()
 
 def create_app():
     app = Flask(__name__)
-    app.config["SQLALCHEMY_DATABASE_URI"] = "mysite "
+    app.config["SECRET_KEY"] = "mysite"
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + os.path.join(
         basedir, "data.sqlite"
     )
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-
     from flaskr.views import bp
 
     app.register_blueprint(bp)

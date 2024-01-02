@@ -1,5 +1,5 @@
 from wtforms.form import Form
-from wtforms.fields import StringField, SubmitField, PasswordField
+from wtforms.fields import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Email, EqualTo
 from wtforms import ValidationError
 from flaskr.models import User
@@ -14,7 +14,7 @@ class LoginForm(Form):
 
 # 登録フォーム
 class RegisterForm(Form):
-    email = StringField("メール: ", validators=[DataRequired(), Email()])
+    email = StringField("メール: ", validators=[DataRequired(), Email("メールアドレスが誤っています")])
     username = StringField("名前: ", validators=[DataRequired()])
     password = PasswordField(
         "パスワード: ",
@@ -28,4 +28,4 @@ class RegisterForm(Form):
 
     def validate_email(self, field):
         if User.select_by_email(field.data):
-            raise ValidationError("メールアドレスは既に登録済みです。")
+            raise ValidationError("メールアドレスは既に登録されています")
