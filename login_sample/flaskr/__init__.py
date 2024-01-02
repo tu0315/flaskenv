@@ -17,4 +17,17 @@ migrate = Migrate()
 
 
 def create_app():
-    pass
+    app = Flask(__name__)
+    app.config["SQLALCHEMY_DATABASE_URI"] = "mysite "
+    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + os.path.join(
+        basedir, "data.sqlite"
+    )
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+    from flaskr.views import bp
+
+    app.register_blueprint(bp)
+    db.init_app(app)
+    migrate.init_app(app, db)
+    login_manager.init_app(app)
+    return app
