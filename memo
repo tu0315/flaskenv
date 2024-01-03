@@ -67,3 +67,7 @@ flask db upgrade
 (venv)$ export FLASK_APP=flaskr
 (venv)$ export FLASK_ENV=development
 (venv)$ flask run
+
+2024/01/03
+ここまでの復習。かなり忘れてますわ。
+30

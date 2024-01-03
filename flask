@@ -1,0 +1,19 @@
+*参考
+Flaskへようこそ — Flask Documentation (2.2.x) https://msiz07-flask-docs-ja.readthedocs.io/ja/latest/
+Python+FlaskでのWebアプリケーション開発講座～0からFlaskをマスターしてSNSを作成する～ | Udemy https://www.udemy.com/course/flaskpythonweb/
+
+*開発環境構築(venv,flaskenv,conda)
+mkdir 開発用ディレクトリ
+cd 開発用ディレクトリ
+python3 -m venv venv
+
+アクティベートする
+. venv/bin/activate
+
+アクティベート後、Flaskをインストール
+pip install Flask
+
+
+*pipコマンド
+pipで現在導入されているパッケージの確認
+pip list

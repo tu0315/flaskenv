@@ -1,5 +1,6 @@
 from flask import Flask
 
+# Flask(main)インスタンスを作成
 app = Flask(__name__)
 
 
@@ -25,5 +26,6 @@ def div_num(num1, num2):
     return f"<h1>{div_num}</1>"
 
 
+# デバッグありで実行
 if __name__ == "__main__":
     app.run(debug=True)
