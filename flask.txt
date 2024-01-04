@@ -1,19 +1,18 @@
-*参考
-Flaskへようこそ — Flask Documentation (2.2.x) https://msiz07-flask-docs-ja.readthedocs.io/ja/latest/
-Python+FlaskでのWebアプリケーション開発講座～0からFlaskをマスターしてSNSを作成する～ | Udemy https://www.udemy.com/course/flaskpythonweb/
+MacでFlask用のローカル環境構築
+virtualenvを使用
+‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐
+①pythonをインストールした状態で、pythonのバージョンが選択されていることをチェックし、ターミナルで以下のコマンドを叩く
+$ virtualenv 好きな環境名(flaskenvとする)
 
-*開発環境構築(venv,flaskenv,conda)
-mkdir 開発用ディレクトリ
-cd 開発用ディレクトリ
-python3 -m venv venv
+②アクティベートする
+$ . venv/bin/activate
 
-アクティベートする
-. venv/bin/activate
+③アクティベート後、Flaskをインストール
+$ pip install Flask
 
-アクティベート後、Flaskをインストール
-pip install Flask
+‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐
+*pipで現在導入されているパッケージの確認
+$ pip list
 
-
-*pipコマンド
-pipで現在導入されているパッケージの確認
-pip list
+*requirements.txtからパッケージを一括インストール
+pip freeze > requirements.txt

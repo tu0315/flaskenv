@@ -1,5 +1,6 @@
 Python+FlaskでのWebアプリケーション開発講座～0からFlaskをマスターしてSNSを作成する～ | Udemy https://www.udemy.com/course/flaskpythonweb/
 
+
 . flaskenv/bin/activate
 flask --app app --debug run
 リクエストを飛ばす→Flaskサーバーにアクセス→URLによって処理が割り振られる
@@ -71,3 +72,24 @@ flask db upgrade
 2024/01/03
 ここまでの復習。かなり忘れてますわ。
 30
+
+2024/01/04
+復習。最終的にREADMEにまとめたら見やすいかな。
+https://qiita.com/hanlio/items/e3472f0b6e87ccb6f9ff
+.
+├── 01_routing
+├── 02_template
+├── 03_template_exam
+├── blueprint_sample
+├── flask.txt
+├── flaskenv
+├── form
+├── login_sample
+├── memo.txt
+├── model_exam
+├── models
+├── models2
+├── models_foreignkey
+├── pdf
+├── requirements.txt：セクション5〜9までのパッケージ情報。pip freeze > requirements.txt で一括インストール可能
+└── wtform
