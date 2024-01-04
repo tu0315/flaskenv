@@ -1,2 +1,4 @@
-form/static/.DS_Store
 .DS_Store
+flaskenv
+*.pyc
+*__pycache__
