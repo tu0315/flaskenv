@@ -1,9 +1,12 @@
 from flask import Flask, render_template
+
+# 自分で作ったフィルター用.pyファイルをインポート
 from custom_filters import reverse, birth_year
 
-
+# インスタンス化
 app = Flask(__name__)
 
+# 自作.pyファイルの関数を使用
 app.add_template_filter(reverse, "reverse_name")
 app.add_template_filter(birth_year, "birth_year")
 
@@ -13,7 +16,7 @@ def index():
     return render_template("index.html")
 
 
-# class化
+# UserInfoクラス
 class UserInfo:
     # 初期インスタンス
     def __init__(self, name, age, hobby):
@@ -24,14 +27,11 @@ class UserInfo:
     # あいさつ関数
     def greet(self):
         # 必ずリターンを用意する
-        return f"{self.name}です。趣味は{self.hobby}です。よろしくお願いいたします。"
+        return f"{self.name}({self.age})です。趣味は{self.hobby}です。よろしくお願いいたします。"
 
 
 @app.route("/home/<string:user_name>/<int:age>/<string:hobby>")
 def home(user_name, age, hobby):
-    # login_user = user_name
-    # user_info = {"name": user_name, "age": age}
-
     # インスタンス化
     user_info = UserInfo(user_name, age, hobby)
     # user_info.greet()

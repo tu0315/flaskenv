@@ -7,7 +7,7 @@ def reverse(name):
     return name[::-1]
 
 
-# 生まれ年を表示するfilter
+# 生まれ年を表示するfilter(うるう年非考慮)
 def birth_year(age):
     # 現在の年
     current_year = datetime.datetime.now().year
