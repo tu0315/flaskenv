@@ -36,7 +36,7 @@ pip freeze > requirements.txt
 . venv/bin/activate
 ```
 ②ターミナルで対象ディレクトリへ行き、対象の.pyファイルを選択し、以下のコマンドを叩く
-```zsh
+```flask
 flask --app XXX.py --debug run
 ```
 
@@ -45,7 +45,7 @@ flask --app XXX.py --debug run
 # テーブル作成
 
 テーブル作成用.pyファイルを実行
-```zsh
+```python
 export FLASK_APP=models.py 
 flask db init
 flask db migrate -m "first commit"
