@@ -44,8 +44,6 @@ def load_member_detail(member_number):
         # 一致したメンバーがいたら詳細ページへ
         if member.number == member_number:
             return render_template("member_detail.html", member=member)
-        # ホームへリダイレクト
-        # return redirect(url_for("main"))
 
 
 # 利用規約

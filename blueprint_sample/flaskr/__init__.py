@@ -6,6 +6,7 @@ def create_app():
     from flaskr.mysite1.views import mysite1_bp
     from flaskr.mysite2.views import mysite2_bp
 
+    # 分割したblueprintを登録する
     app.register_blueprint(mysite1_bp)
     app.register_blueprint(mysite2_bp)
     return app

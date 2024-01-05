@@ -10,7 +10,7 @@ import os
 app = Flask(__name__)
 
 
-# Pykakasiで変換（importできてないので使えてないが。質問する）
+# Pykakasiで変換（importできてないので使えてない、、、一旦保留）
 # class Kakashi:
 #     kakashi = pykakasi.kakasi()
 #     kakashi.setMode("H", "a")
@@ -49,14 +49,6 @@ def home():
     print(request.args)
 
     # UserInfoクラスのインスタンス作成
-    # *以下だとGET時しか取得できない
-    # user_info = UserInfo(
-    #     request.args.get("last_name"),
-    #     request.args.get("first_name"),
-    #     request.args.get("job"),
-    #     request.args.get("gender"),
-    #     request.args.get("message"),
-    # )
     # *GET, POSTに対応
     user_info = UserInfo(
         request.form.get("last_name"),
@@ -66,7 +58,6 @@ def home():
         request.form.get("message"),
     )
     # *更に良いやり方がFlaskにはある!
-
     return render_template("home.html", user_info=user_info)
 
 
@@ -80,7 +71,7 @@ def upload():
     elif request.method == "POST":
         # POSTデータからファイル名取得
         file = request.files["file"]
-        # ファイルを日本語から英語に変換
+        # ファイルを日本語から英語に変換（一旦英語名での登録に限る）
         # ascii_filename = Kakashi.japanese_to_ascii(file.filename)
         # ファイル名を安全な形式に変換
         save_filename = secure_filename(file.filename)

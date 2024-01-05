@@ -1,3 +1,10 @@
 (venv)$ export FLASK_APP=flaskr
 (venv)$ export FLASK_ENV=development
 (venv)$ flask run
+
+2024/01/05時点での理解できてない部分
+*url_forの使い方むずい。
+*Blueprintよくわからん、どう使う？
+1つのサーバで複数のアプリケーションを登録することができる
+*pykakasi使えねえ問題。
+*ログイン処理とモデル周りの処理だいぶあやしいので復習する

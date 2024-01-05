@@ -35,7 +35,7 @@ def index():
         else:
             # エラーを返す
             print("入力内容に問題があります。")
-    # 引数に値をセットしてレンディングする(GETでアクセスしたときは上記の処理通らないよ)
+    # 引数に値をセットしてレンcディングする(GETでアクセスしたときは上記の処理通らないよ)
     return render_template("index.html", form=form, name=name, age=age)
 
 

@@ -2,5 +2,4 @@
 flaskenv
 *.pyc
 *__pycache__
-pdf
 form/static/image
