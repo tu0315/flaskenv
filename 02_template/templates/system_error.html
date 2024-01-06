@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}SYSTEM ERROR{% endblock %}
+{% block content %}
+<a href="{{ url_for('index') }}">Indexへ</a>
+<h1>システムエラーです。</h1>
+<p>{{ error_description }}</p>
+<img src="{{ url_for('static', filename='image/cutedog.jpg') }}">
+{% endblock %}
