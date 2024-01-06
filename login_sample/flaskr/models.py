@@ -35,4 +35,5 @@ class User(UserMixin, db.Model):
 
     @classmethod
     def select_by_email(cls, email):
+        # emailでUserを絞り込む
         return cls.query.filter_by(email=email).first()

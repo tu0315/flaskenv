@@ -5,7 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
 
-# Flask‐loginアプリケーションを立ち上げる
+# Flask‐loginライブラリとアプリケーションを立ち上げる
 login_manager = LoginManager()
 # ログインの関数
 login_manager.login_view = "app.login"

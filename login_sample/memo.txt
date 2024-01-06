@@ -1,0 +1,10 @@
+■マイグレーション手法
+対象のディレクトリに移動（今回はflaskstudy/login_sampleで検証）
+export FLASK_APP=setup.py 
+flask db init
+flask db migrate -m "initial"
+flask db upgrade
+
+■login_sampleの起動方法
+[flaskstudy/login_sample] set FLASK_APP=flaskr
+[flaskstudy/login_sample] set flask --app setup.py --debug run
