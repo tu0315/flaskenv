@@ -55,6 +55,7 @@ def user(user_name, age, hobby):
         # リダイレクトする
         return redirect(url_for("home", user_name=user_name, age=age, hobby=hobby))
     else:
+        # 500エラーを発動させる
         abort(500, "そのユーザーはリダイレクトできません。")
 
 
@@ -68,6 +69,8 @@ def page_not_found(error):
 # 500エラー時に発動するエラーハンドラー
 @app.errorhandler(500)
 def system_error(error):
+    print(error.description)
+    # error.descriptionにはabortの第2引数がセットされている
     error_description = error.description
     return (
         render_template("system_error.html", error_description=error_description),
