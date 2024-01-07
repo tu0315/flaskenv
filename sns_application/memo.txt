@@ -1,0 +1,2 @@
+■このアプリに対応したバージョンのパッケージインストール
+pip install -r sns_application/requirements.txt
