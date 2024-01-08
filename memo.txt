@@ -26,3 +26,9 @@ return redirect(url_for('info', 引数))
 
 *エラーハンドラやってない
 2024/01/06：終わらせやした
+
+*__init__.pyの役割・意義
+Python__init__.py入門：基本から応用まで分かりやすく解説 | とあるエンジニアのエソラゴト https://ya6mablog.com/how-to-use-init-py/
+パッケージ：複数のモジュールを集約したディレクトリのこと
+sns_applicationではflaskrファイルの各モジュールを集約したファイルを指す認識
+→あんまりピンとこないけどそのうち分かるでしょう。
