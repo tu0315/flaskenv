@@ -1,2 +1,13 @@
 ■このアプリに対応したバージョンのパッケージインストール
 pip install -r sns_application/requirements.txt
+
+177にて沼。
+flask db initした際に色々エラー出たので原因調べながらパッケージのバージョンを上げて対応…
+以下の記事がおそらくこの講座やってる人の参照例
+Flaskのflask db init時に発生するImportErrorの対処 #Python - Qiita https://qiita.com/Senritsu420/items/8a43c56f24f46d9addf5
+エラー解決しながら対応、requirements.txtも修正
+そして最後に以下エラー、ここが難関
+ImportError: cannot import name 'safe_str_cmp' from 'werkzeug.security'
+Werkzeug 周りでのエラー、safe_str_cmpとやらは既に廃止されている
+https://stackoverflow.com/questions/71652965/importerror-cannot-import-name-safe-str-cmp-from-werkzeug-security
+代替手段として"hmac"ってのがあるっぽいけど、、、どう導入する？
