@@ -57,6 +57,7 @@ class ResetPasswordForm(Form):
     submit = SubmitField("パスワードを更新する")
 
 
+# バリデーション、8文字以内で
 def validate_password(self, field):
     if len(field.data) < 8:
         raise ValidationError("パスワードは8文字以上で設定してください")

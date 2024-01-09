@@ -32,3 +32,16 @@ Python__init__.py入門：基本から応用まで分かりやすく解説 | と
 パッケージ：複数のモジュールを集約したディレクトリのこと
 sns_applicationではflaskrファイルの各モジュールを集約したファイルを指す認識
 →あんまりピンとこないけどそのうち分かるでしょう。
+
+*クラスメソッドはクラスを呼び出す際に使う？インスタンスメソッドとの違いピンときてない
+https://blog.pyq.jp/entry/Python_kaiketsu_190205
+https://qiita.com/moshi1121/items/c74d350bab32113d4f3d
+https://qiita.com/moshi1121/items/c3997653a621c74fb97d
+↑あとでよむ
+
+*macro,endmacro
+決まった形式の表示をいくつも表示したい時に使用する
+jinjaテンプレートの機能の一つ
+https://note.com/toshiyamiyazaki/n/n94d2d3d29fa1
+https://qiita.com/simonritchie/items/cc2021ac6860e92de25d
+やれること多いなーーー

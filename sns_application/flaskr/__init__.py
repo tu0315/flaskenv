@@ -15,6 +15,7 @@ db = SQLAlchemy()
 migrate = Migrate()
 
 
+# アプリを作成する関数
 def create_app():
     app = Flask(__name__)
     app.config["SECRET_KEY"] = "mysite"

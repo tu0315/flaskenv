@@ -16,7 +16,7 @@ def home():
 @bp.route("/logout")
 def logout():
     logout_user()  # ログアウト
-    return redirect("app.home")
+    return redirect("app.home")  # ホームに飛ばす
 
 
 @bp.route("/login", methods=["GET", "POST"])
@@ -24,8 +24,9 @@ def login():  # ログイン画面の関数
     form = LoginForm(request.form)
     # POSTかつバリデーション突破したか
     if request.method == "POST" and form.validate():
+        # Emailからユーザーを取得する
         user = User.select_user_by_email(form.email.data)
-        # ユーザーが存在してアクティブでパスワードが正しいか
+        # ユーザーが存在してアクティブでパスワードが正しければログインする
         if user and user.is_active and user.validate_password(form.password.data):
             # ログインの処理
             login_user(user, remember=True)
@@ -53,13 +54,14 @@ def register():  # 登録画面の関数
         # ユーザーを作成
         user = User(username=form.username.data, email=form.email.data)
         with db.session.begin(subtransactions=True):
+            # ユーザー新規作成
             user.create_new_user()
         db.session.commit()
         token = ""
         with db.session.begin(subtransactions=True):
             token = PasswordResetToken.publish_token(user)
         db.session.commit()
-        # メールに飛ばす方がいいけど一旦これで
+        # メールを飛ばす方がいいけど一旦これで
         print(f"パスワードリセット用URL: http://127.0.0.1.5000/reset_password/{token}")
         flash("パスワード設定用のURLを送りました。ご確認ください。")
         return redirect(url_for("app.login"))
@@ -74,6 +76,7 @@ def reset_password(token):  # パスワード設定画面の関数
     if not reset_user_id:
         abort(500)
     if request.method == "POST" and form.validate():
+        # password再設定
         password = form.password.data
         user = User.select_user_by_id(reset_user_id)
         with db.session.begin(subtransactions=True):

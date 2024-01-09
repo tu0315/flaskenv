@@ -1,25 +1,27 @@
 # models.py
-
 from flaskr import db, login_magager
 from flask_bcrypt import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from datetime import datetime, timedelta
-from uuid import uuid4
+from uuid import uuid4  # uuidを作成するためのライブラリ
 
 
+# ユーザーログイン
 @login_magager.user_loader
 def load_user(user_id):
     return User.query.get(user_id)
 
 
+# ユーザークラス
 class User(UserMixin, db.model):
     __tablename__ = "users"
+
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True)
+    # Emailは1つしか登録できないようにする
     email = db.Column(db.String(64), unique=True, index=True)
     password = db.Column(db.String(128), default=generate_password_hash("snsflaskapp"))
     picture_path = db.Column(db.Text)
-
     # 有効か無効かのフラグ
     is_activate = db.Column(db.Boolean, unique=False, default=False)
     create_at = db.Column(db.Datetime, default=datetime.now)
@@ -62,6 +64,7 @@ class PasswordResetToken(db.Model):
     token = db.Column(db.String(64), unique=True, index=True, server_default=str(uuid4))
 
     id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    # Tokenの有効時間
     expire_at = db.Column(db.Datetime, default=datetime.now)
     create_at = db.Column(db.Datetime, default=datetime.now)
     update_at = db.Column(db.Datetime, default=datetime.now)
