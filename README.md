@@ -40,7 +40,7 @@ pip install Flask
 
 ④requirements.txtからパッケージを一括インストール
 ```
-pip freeze > requirements.txt
+pip install -r requirements.txt
 ```
 
 # 環境構築（miniconda）
