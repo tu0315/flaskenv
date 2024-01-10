@@ -11,3 +11,7 @@ ImportError: cannot import name 'safe_str_cmp' from 'werkzeug.security'
 Werkzeug 周りでのエラー、safe_str_cmpとやらは既に廃止されている
 https://stackoverflow.com/questions/71652965/importerror-cannot-import-name-safe-str-cmp-from-werkzeug-security
 代替手段として"hmac"ってのがあるっぽいけど、、、どう導入する？
+
+2024/01/10
+質問したが解決せず
+→別途で講座を作るとの返答あり、それまで動画視聴は続ける
