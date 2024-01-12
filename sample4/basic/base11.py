@@ -6,13 +6,14 @@ tmp_dict = {"country": "Japan", "prefecture": "Aichi", "model": "カローラ"}
 car.update(tmp_dict)
 print(car)
 car["city"] = "Toyota-shi"
-car["year"] = 2017
+car["year"] = 2024
 print(car)
 
 value = car.popitem()
 print(car)
 print(value)
 
+# キーの値取り出し
 value = car.pop("model")
 print(car)
 print(value)
