@@ -1,19 +1,19 @@
 # models.py
-from flaskr import db, login_magager
+from flaskr import db, login_manager
 from flask_bcrypt import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from datetime import datetime, timedelta
-from uuid import uuid4  # uuidを作成するためのライブラリ
+from uuid import uuid4
 
 
 # ユーザーログイン
-@login_magager.user_loader
+@login_manager.user_loader
 def load_user(user_id):
     return User.query.get(user_id)
 
 
 # ユーザークラス
-class User(UserMixin, db.model):
+class User(UserMixin, db.Model):
     __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key=True)
@@ -23,9 +23,9 @@ class User(UserMixin, db.model):
     password = db.Column(db.String(128), default=generate_password_hash("snsflaskapp"))
     picture_path = db.Column(db.Text)
     # 有効か無効かのフラグ
-    is_activate = db.Column(db.Boolean, unique=False, default=False)
-    create_at = db.Column(db.Datetime, default=datetime.now)
-    update_at = db.Column(db.Datetime, default=datetime.now)
+    is_active = db.Column(db.Boolean, unique=False, default=False)
+    create_at = db.Column(db.DateTime, default=datetime.now)
+    update_at = db.Column(db.DateTime, default=datetime.now)
 
     # コンストラクタを定義
     def __init__(self, username, email):
@@ -60,14 +60,13 @@ class User(UserMixin, db.model):
 # パスワードリセット時に利用する
 class PasswordResetToken(db.Model):
     __tablename__ = "password_reset_tokens"
+
     id = db.Column(db.Integer, primary_key=True)
     token = db.Column(db.String(64), unique=True, index=True, server_default=str(uuid4))
-
-    id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    # Tokenの有効時間
-    expire_at = db.Column(db.Datetime, default=datetime.now)
-    create_at = db.Column(db.Datetime, default=datetime.now)
-    update_at = db.Column(db.Datetime, default=datetime.now)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    expire_at = db.Column(db.DateTime, default=datetime.now)
+    create_at = db.Column(db.DateTime, default=datetime.now)
+    update_at = db.Column(db.DateTime, default=datetime.now)
 
     # コンストラクタを定義
     def __init__(self, token, user_id, expire_at):

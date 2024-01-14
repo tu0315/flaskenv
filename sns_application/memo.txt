@@ -15,3 +15,8 @@ https://stackoverflow.com/questions/71652965/importerror-cannot-import-name-safe
 2024/01/10
 質問したが解決せず
 →別途で講座を作るとの返答あり、それまで動画視聴は続ける
+
+2024/01/14
+flask-loginではなく、flask-bcryptのバージョンによる問題だった
+pip install --upgrade flask-bcrypt
+ソースを修正。無事migrateできた！requirements.txt修正した。
