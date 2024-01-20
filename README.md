@@ -33,6 +33,11 @@ virtualenv 好きな環境名(仮にflaskenvとする)
 . flaskenv/bin/activate
 ```
 
+ちなみに無効化は
+```
+deactivate
+```
+
 ③アクティベート後、Flaskをインストール
 ```
 pip install Flask

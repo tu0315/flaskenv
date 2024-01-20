@@ -20,3 +20,10 @@ https://stackoverflow.com/questions/71652965/importerror-cannot-import-name-safe
 flask-loginではなく、flask-bcryptのバージョンによる問題だった
 pip install --upgrade flask-bcrypt
 ソースを修正。無事migrateできた！requirements.txt修正した。
+
+2024/01/20
+エラー出て表示できず。
+教材のソースだとちゃんと起動したので多分なんかミスってる
+なにかしらのpyファイルが原因かな、templatesじゃないと思う
+File "/Users/taku/Documents/Python/flaskstudy/sns_application/flaskr/views.py", line 12, in home
+が悪いらしい、render_templateのとこ
